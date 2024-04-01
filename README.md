@@ -33,12 +33,12 @@ In this section, we will prove an platform in which user will get practice probl
 
 
 # Our Team
-<img src="https://github.com/priyanshi1282.png" width='100px'> <a href="https://github.com/priyanshi1282" target="_blank">Priyanshi Agrawal</a>
+<img src="images\krrish.png" width='100px'> <a href="https://github.com/Krishrajput1107" target="_blank">Krish</a>
   
-<img src="https://github.com/gopish12.png" width='100px'> <a href="https://github.com/gopish12" target="_blank">Gopish Mahajan</a>
+<img src="" width='100px'> <a href="https://github.com/pratibhadureja" target="_blank">Pratibha Dureja</a>
 
-<img src="https://github.com/Pratigyaagr.png" width='100px'> <a href="https://github.com/Pratigyaagr" target="_blank">Pratigya Agrawal</a>
+<img src="" width='100px'> <a href="https://github.com/11SwaStik" target="_blank">Swastik Sharma</a>
 
-<img src="https://github.com/ravish036.png" width='100px'> <a href="https://github.com/ravish036" target="_blank">Ravish Satwani</a>
+<img src="" width='100px'> <a href="https://github.com/DeDzX" target="_blank">Vansh Ahlawat</a>
 
 
