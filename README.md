@@ -1,4 +1,4 @@
-<h1 align="center"> <a href="https://www.canva.com/design/DAFX2Dzs78w/YXHXErV7zJscN_2H6EMMxg/edit?utm_content=DAFX2Dzs78w&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"> Edutech </a> </h1> 
+<h1 align="center"> <a href="https://www.canva.com/design/DAGBy4Jw7WA/Im8K8H6FmD6on12AcFiNwA/edit?utm_content=DAGBy4Jw7WA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"> Edutech </a> </h1> 
 <p align="center">Your Education Mate!<p>
 
 # About❓
