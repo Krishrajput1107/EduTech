@@ -27,7 +27,7 @@ continue_btn.onclick = ()=>{
     showQuetions(0); //calling showQestions function
     queCounter(1); //passing 1 parameter to queCounter
     startTimer(15); //calling startTimer function
-    startTimerLine(0); //calling startTimerLine function
+
 }
 
 let timeValue =  15;
@@ -35,8 +35,8 @@ let que_count = 0;
 let que_numb = 1;
 let userScore = 0;
 let counter;
-let counterLine;
-let widthValue = 0;
+
+
 
 const restart_quiz = result_box.querySelector(".buttons .restart");
 const quit_quiz = result_box.querySelector(".buttons .quit");
@@ -49,13 +49,11 @@ restart_quiz.onclick = ()=>{
     que_count = 0;
     que_numb = 1;
     userScore = 0;
-    widthValue = 0;
     showQuetions(que_count); //calling showQestions function
     queCounter(que_numb); //passing que_numb value to queCounter
     clearInterval(counter); //clear counter
-    clearInterval(counterLine); //clear counterLine
     startTimer(timeValue); //calling startTimer function
-    startTimerLine(widthValue); //calling startTimerLine function
+    
     timeText.textContent = "Time Left"; //change the text of timeText to Time Left
     next_btn.classList.remove("show"); //hide the next button
 }
@@ -76,14 +74,12 @@ next_btn.onclick = ()=>{
         showQuetions(que_count); //calling showQestions function
         queCounter(que_numb); //passing que_numb value to queCounter
         clearInterval(counter); //clear counter
-        clearInterval(counterLine); //clear counterLine
+        
         startTimer(timeValue); //calling startTimer function
-        startTimerLine(widthValue); //calling startTimerLine function
         timeText.textContent = "Time Left"; //change the timeText to Time Left
         next_btn.classList.remove("show"); //hide the next button
     }else{
         clearInterval(counter); //clear counter
-        clearInterval(counterLine); //clear counterLine
         showResult(); //calling showResult function
     }
 }
@@ -115,7 +111,6 @@ let crossIconTag = '<div class="icon cross"><i class="fas fa-times"></i></div>';
 //if user clicked on option
 function optionSelected(answer){
     clearInterval(counter); //clear counter
-    clearInterval(counterLine); //clear counterLine
     let userAns = answer.textContent; //getting user selected option
     let correcAns = questions[que_count].answer; //getting correct answer from array
     const allOptions = option_list.children.length; //getting all option items
@@ -194,18 +189,7 @@ function startTimer(time){
     }
 }
 
-/*
-function startTimerLine(time){
-    counterLine = setInterval(timer, 29);
-    function timer(){
-        time += 1; //upgrading time value with 1
-        time_line.style.width = time + "px"; //increasing width of time_line with px by time value
-        if(time > 549){ //if time value is greater than 549
-            clearInterval(counterLine); //clear counterLine
-        }
-    }
-}
-*/
+
 
 function queCounter(index){
     //creating a new span tag and passing the question number and total question

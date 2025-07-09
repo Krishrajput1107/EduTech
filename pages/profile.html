@@ -10,6 +10,69 @@
     <link rel="stylesheet" href="../styles/profile.css">
     <title>Profile</title>
     <link rel="shortcut icon" href="../images/favicon.png" type="image/png">
+    <style>
+        /* Style the entire basic-container */
+            .basic-container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            font-family: 'Segoe UI', sans-serif;
+            }
+
+            /* Table styles */
+            .basic-container table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            }
+
+            .basic-container td {
+            padding: 12px 10px;
+            vertical-align: top;
+            font-size: 16px;
+            color: #333;
+            }
+
+            /* Input field styles */
+            .basic-container input[type="text"],
+            .basic-container input[type="date"] {
+            width: 100%;
+            padding: 10px 12px;
+            font-size: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: 0.3s ease;
+            }
+
+            .basic-container input:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0,123,255,0.3);
+            }
+
+            /* Save button styling */
+            #save {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            display: block;
+            margin: 0 auto;
+            }
+
+            #save:hover {
+            background-color: #0056b3;
+            }
+
+    </style>
 </head>
 
 <body>
@@ -49,73 +112,103 @@
         <div class="row">
             <img src="../images/profile.png" alt="user">
             <div class="info">
-                <h3>User Name</h3>
+                <h3>Krish</h3>
                 <p><b>Coins Earned : </b>00</p>
             </div>
         </div>
     </div>
 
     <div class="basic-container">
-        <h3>Basic Info</h3>
-        <table>
-            <tr>
-                <td>Name</td>
-                <td contenteditable="true">User Name</td>
-            </tr>
-            <tr>
-                <td>Gender</td>
-                <td contenteditable="true">enter your gender</td>
-            </tr>
-            <tr>
-                
-               <td>Location</td>
-                <td contenteditable="true">your loaction</td>
-            </tr>
-            <tr>
-                <td>Birthday</td>
-                <td contenteditable="true">your birthday date</td>
-            </tr>
-            <tr>
-                <td>Website</td>
-                <td contenteditable="true">link of your website</td>
-            </tr>
-            <tr>
-                <td>Linkedin</td>
-                <td contenteditable="true">link of your linkedin profile</td>
-            </tr>
-            <tr>
-                <td>Github</td>
-                <td contenteditable="true">link of your github profile</td>
-            </tr>
-        </table>
-        <h3>Experince</h3>
-        <table>
-            <tr>
-                <td>Work</td>
-                <td contenteditable="true">enter your work experince if any</td>
-            </tr>
-            <tr>
-                <td>Education</td>
-                <td contenteditable="true">enter your education if any</td>
-            </tr>
-        </table>
-        <h3>Skills</h3>
-        <table>
-            <tr>
-                <td>Technical Skills</td>
-                <td contenteditable="true">enter your technical skills</td>
-            </tr>
-        </table>
-        <button id="save">SAVE</button>
-    </div>
+    <h3>Basic Info</h3>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" id="name" placeholder="Enter your name" /></td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td><input type="text" id="gender" placeholder="Enter your gender" /></td>
+        </tr>
+        <tr>
+            <td>Location</td>
+            <td><input type="text" id="location" placeholder="Enter your location" /></td>
+        </tr>
+        <tr>
+            <td>Birthday</td>
+            <td><input type="date" id="birthday" /></td>
+        </tr>
+        <tr>
+            <td>Website</td>
+            <td><input type="text" id="website" placeholder="https://example.com" /></td>
+        </tr>
+        <tr>
+            <td>LinkedIn</td>
+            <td><input type="text" id="linkedin" placeholder="LinkedIn profile link" /></td>
+        </tr>
+        <tr>
+            <td>GitHub</td>
+            <td><input type="text" id="github" placeholder="GitHub profile link" /></td>
+        </tr>
+    </table>
 
-    <script src="../script/navbar.js"></script>
+    <h3>Experience</h3>
+    <table>
+        <tr>
+            <td>Work</td>
+            <td><input type="text" id="work" placeholder="Work experience" /></td>
+        </tr>
+        <tr>
+            <td>Education</td>
+            <td><input type="text" id="education" placeholder="Education details" /></td>
+        </tr>
+    </table>
+
+    <h3>Skills</h3>
+    <table>
+        <tr>
+            <td>Technical Skills</td>
+            <td><input type="text" id="skills" placeholder="E.g., HTML, CSS, JS, Python" /></td>
+        </tr>
+    </table>
+
+    <button id="save">SAVE</button>
+</div>
+
+
+
     <script>
-        const save=  document.querySelector("#save");
-        save.addEventListener("click", function(){
-            alert("information updated.");
+    const saveBtn = document.getElementById("save");
+
+    const fields = [
+        "name", "gender", "location", "birthday", "website",
+        "linkedin", "github", "work", "education", "skills"
+    ];
+
+    // Save to localStorage
+    saveBtn.addEventListener("click", function () {
+        const data = {};
+        fields.forEach(id => {
+            data[id] = document.getElementById(id).value;
         });
-    </script>
+
+        localStorage.setItem("profileData", JSON.stringify(data));
+        alert("Profile saved!");
+    });
+
+    // Load from localStorage
+    window.addEventListener("DOMContentLoaded", function () {
+        const saved = JSON.parse(localStorage.getItem("profileData"));
+        if (saved) {
+            fields.forEach(id => {
+                if (saved[id]) {
+                    document.getElementById(id).value = saved[id];
+                }
+            });
+        }
+    });
+</script>
+
+
 </body>
 
 </html>

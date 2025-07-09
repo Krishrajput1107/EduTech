@@ -1,5 +1,4 @@
-function signup(e){
-    event.preventDefault();
+function signup(){
     console.log('working');
 
     var email = document.getElementById('email').value;
@@ -8,48 +7,39 @@ function signup(e){
     var pass = document.getElementById('password').value;
 
     var user = {
-        email:email,
-        firstname:firstname,
-        lastname:lastname,
-        password:pass
+        email: email,
+        firstname: firstname,
+        lastname: lastname,
+        password: pass
     }
 
     var json = JSON.stringify(user);
-    localStorage.setItem(email,json);
-    console.log('user added')
+    localStorage.setItem(email, json); // Save user data with email as key
+    console.log('user added');
 }
 
 
-// function loginFunction() {
-//     var email = document.forms["loginForm"]["email"].value;
-//     var password = document.forms["loginForm"]["password"].value;
-//     if (email == "admin@gmail" && password == "123456") {
-//         window.location.href="home.html";
-//     } 
-//     else {
-//         alert("Invalid credentials")
-//     }
-// }
+function loginFunction() {
+    
+    console.log('Login function called');
 
-
-function loginFunction(e) {
-    event.preventDefault();
-
-    console.log('i was called');
     var email = document.getElementById('email').value;
     var pass = document.getElementById('password').value;
 
-    var user = localStorage.getItem(email); //fetching actual username which does exist from the localstorage
-    var data = JSON.parse(user)
+    var user = localStorage.getItem(email); // Fetch user from localStorage
 
+    if (!user) {
+        alert("User not found!");
+        return;
+    }
 
-    if(email == data.email && pass == data.password) {
+    var data = JSON.parse(user);
+
+    if (email === data.email && pass === data.password) {
+        localStorage.setItem("currentUser", email); 
         window.location.href = "home.html";
-        document.getElementById('welcome-name').innerHTML = "New text!";
-        console.log('success fully logged in');
-    } 
-
-    else {
-        alert("Invalid credentials")
+        console.log('Successfully logged in');
+    } else {
+        alert("Invalid credentials");
     }
 }
